@@ -295,6 +295,36 @@
   animation: float-soft 6s ease-in-out infinite;
 }
 
+@utility spotlight {
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: var(--spot, 0);
+    transition: opacity 0.4s ease;
+    background: radial-gradient(
+      var(--glow, 260px) circle at var(--mx, 50%) var(--my, 50%),
+      color-mix(in oklab, var(--primary) 16%, transparent),
+      transparent 70%
+    );
+  }
+}
+
+@utility hairline {
+  background: linear-gradient(
+    90deg,
+    color-mix(in oklab, var(--primary) 70%, transparent),
+    transparent
+  );
+}
+
+@utility bar-fill {
+  background: linear-gradient(90deg, var(--primary), var(--primary-glow));
+}
+
+
+
 
 @media (prefers-reduced-motion: reduce) {
   html {
