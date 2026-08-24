@@ -3,6 +3,7 @@ import { ArrowRight, FileDown, Github, Linkedin, Code2, Sparkles } from "lucide-
 import { LINKS } from "@/data/portfolio";
 import backdrop from "@/assets/profile-backdrop.jpg";
 import portrait from "@/assets/khushali.png";
+import resumeAsset from "@/assets/resume.pdf.asset.json";
 
 const ROLES = ["Full-Stack Developer", "AI/ML Enthusiast", "Software Engineer in Progress"];
 
@@ -128,7 +129,10 @@ export function Hero() {
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
             </a>
             <a
-              href={`mailto:${LINKS.email}?subject=Resume%20request`}
+              href={resumeAsset.url}
+              target="_blank"
+              rel="noreferrer noopener"
+              download
               className="inline-flex items-center gap-2 rounded-xl border border-border bg-secondary/50 px-5 py-3 text-sm font-semibold backdrop-blur-md transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary"
             >
               <FileDown className="size-4" />
