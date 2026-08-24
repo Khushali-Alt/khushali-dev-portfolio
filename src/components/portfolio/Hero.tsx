@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowRight, FileDown, Github, Linkedin, Code2, Sparkles } from "lucide-react";
 import { LINKS } from "@/data/portfolio";
 import backdrop from "@/assets/profile-backdrop.jpg";
+import portrait from "@/assets/khushali.png";
 
 const ROLES = ["Full-Stack Developer", "AI/ML Enthusiast", "Software Engineer in Progress"];
 
@@ -157,33 +158,38 @@ export function Hero() {
 
         <div className="relative mx-auto w-full max-w-sm">
           <div className="float-soft relative">
-            <div className="relative aspect-square overflow-hidden rounded-[1.75rem] p-[1.5px]">
+            <div className="relative aspect-square overflow-hidden rounded-full p-[1.5px]">
               <span aria-hidden className="conic-ring opacity-70" />
-              <div className="glass relative size-full overflow-hidden rounded-[1.7rem]">
+              <div className="glass relative size-full overflow-hidden rounded-full">
                 <img
                   src={backdrop}
                   alt=""
                   aria-hidden
                   width={768}
                   height={768}
-                  className="absolute inset-0 size-full object-cover opacity-70"
+                  className="absolute inset-0 size-full object-cover opacity-60"
                 />
-                <div className="relative grid size-full place-items-center">
-                  <div className="text-center">
-                    <span className="font-display text-6xl font-bold text-gradient">KT</span>
-                    <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.25em] text-muted-foreground">
-                      B.Tech CSE · 2023–2027
-                    </p>
-                  </div>
-                </div>
+                <img
+                  src={portrait}
+                  alt="Portrait of Khushali Tiwari"
+                  width={800}
+                  height={800}
+                  className="relative size-full object-cover object-center"
+                />
               </div>
             </div>
 
-            <div className="glass absolute -left-6 top-8 hidden rounded-xl px-3 py-2 font-mono text-[11px] text-muted-foreground sm:block">
+            <div className="glass absolute -left-4 top-6 hidden rounded-xl px-3 py-2 font-mono text-[11px] text-muted-foreground sm:block">
               <span className="text-primary">●</span> Java · DSA
             </div>
-            <div className="glass absolute -right-4 bottom-24 hidden rounded-xl px-3 py-2 font-mono text-[11px] text-muted-foreground sm:block">
+            <div className="glass absolute -right-3 top-1/2 hidden rounded-xl px-3 py-2 font-mono text-[11px] text-muted-foreground sm:block">
               <span className="text-primary">▲</span> AI / ML
+            </div>
+            <div className="glass absolute -left-2 bottom-8 hidden rounded-xl px-3 py-2 font-display text-sm font-bold text-gradient sm:block">
+              KT
+            </div>
+            <div className="glass absolute inset-x-8 -bottom-4 rounded-xl px-3 py-2 text-center font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+              B.Tech CSE · 2023–2027
             </div>
           </div>
 
