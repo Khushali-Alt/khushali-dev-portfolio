@@ -34,8 +34,21 @@ export function Section({
   children: ReactNode;
   className?: string;
 }) {
+  const ref = useSpotlight<HTMLElement>();
   return (
-    <section id={id} className={cn("relative mx-auto w-full max-w-6xl px-5 py-20 md:py-28", className)}>
+    <section
+      id={id}
+      ref={ref}
+      className={cn("relative mx-auto w-full max-w-6xl px-5 py-20 md:py-28", className)}
+    >
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-10 opacity-80"
+        style={{
+          background:
+            "radial-gradient(320px circle at var(--mx, 50%) var(--my, 30%), color-mix(in oklab, var(--primary) 10%, transparent), transparent 70%)",
+        }}
+      />
       <Reveal>
         <p className="font-mono text-xs uppercase tracking-[0.3em] text-primary">{eyebrow}</p>
         <h2 className="mt-3 text-3xl font-semibold md:text-4xl">{title}</h2>
