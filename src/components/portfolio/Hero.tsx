@@ -84,7 +84,7 @@ export function Hero() {
         <div>
           <span className="inline-flex items-center gap-2.5 rounded-full border border-border bg-secondary/60 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.2em] text-primary backdrop-blur-md">
             <span className="live-dot size-1.5 rounded-full bg-primary" />
-            Open to internships &amp; SDE roles
+            OPEN TO FULL TIME SDE ROLES
           </span>
 
           <h1 className="mt-6 text-[2.6rem] font-bold leading-[1.03] md:text-7xl">

@@ -18,7 +18,7 @@ export const NAV_ITEMS = [
 ];
 
 export const STATS = [
-  { value: "200+", label: "LeetCode Problems" },
+  { value: "110+", label: "LeetCode Problems" },
   { value: "8.0", label: "CGPA / 10" },
   { value: "2023–2027", label: "B.Tech CSE" },
   { value: "8+", label: "Full-Stack & AI/ML Projects" },
