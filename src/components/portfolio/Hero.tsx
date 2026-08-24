@@ -189,7 +189,7 @@ export function Hero() {
 
           <div className="glass mt-5 grid grid-cols-3 divide-x divide-border rounded-2xl p-4 text-center">
             {[
-              { v: "200+", l: "LeetCode" },
+              { v: "110+", l: "LeetCode" },
               { v: "8.0", l: "CGPA" },
               { v: "8+", l: "Projects" },
             ].map((s) => (
