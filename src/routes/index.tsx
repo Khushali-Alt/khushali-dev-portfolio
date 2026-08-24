@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 
 import { Nav } from "@/components/portfolio/Nav";
+import { CursorField } from "@/components/portfolio/CursorField";
 import { Hero } from "@/components/portfolio/Hero";
 import { ContactForm } from "@/components/portfolio/ContactForm";
 import { Section } from "@/components/Section";
@@ -52,6 +53,7 @@ function Index() {
       >
         Skip to content
       </a>
+      <CursorField />
       <Nav />
       <main>
         <Hero />
