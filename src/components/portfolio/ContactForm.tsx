@@ -1,13 +1,19 @@
-import { useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
+import emailjs from "@emailjs/browser";
 import { Loader2, Send } from "lucide-react";
-import { LINKS } from "@/data/portfolio";
+
+// EmailJS credentials (public key / IDs — safe to expose client-side).
+const EMAILJS_SERVICE_ID = "service_57l89rs";
+const EMAILJS_TEMPLATE_ID = "template_kvor4pc";
+const EMAILJS_PUBLIC_KEY = "ifgLkgDWc2v5UlwmW";
 
 type Errors = { name?: string; email?: string; message?: string };
 
 export function ContactForm() {
+  const formRef = useRef<HTMLFormElement>(null);
   const [values, setValues] = useState({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState<Errors>({});
-  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   const validate = () => {
     const next: Errors = {};
@@ -19,21 +25,28 @@ export function ContactForm() {
     return Object.keys(next).length === 0;
   };
 
-  const onSubmit = (e: FormEvent) => {
+  const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
     setStatus("sending");
-    const subject = encodeURIComponent(`Portfolio message from ${values.name}`);
-    const body = encodeURIComponent(`${values.message}\n\nFrom: ${values.name} (${values.email})`);
-    window.location.href = `mailto:${LINKS.email}?subject=${subject}&body=${body}`;
-    window.setTimeout(() => setStatus("sent"), 700);
+
+    try {
+      await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formRef.current!, {
+        publicKey: EMAILJS_PUBLIC_KEY,
+      });
+      setStatus("sent");
+      setValues({ name: "", email: "", message: "" });
+    } catch (err) {
+      console.error("EmailJS send failed:", err);
+      setStatus("error");
+    }
   };
 
   const field =
     "w-full rounded-xl border border-border bg-secondary/40 px-4 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-primary/50 focus:ring-2 focus:ring-ring/40";
 
   return (
-    <form onSubmit={onSubmit} noValidate className="glass rounded-2xl p-6 md:p-8">
+    <form ref={formRef} onSubmit={onSubmit} noValidate className="glass rounded-2xl p-6 md:p-8">
       <div className="grid gap-4 md:grid-cols-2">
         <div>
           <label htmlFor="name" className="mb-2 block text-xs font-medium text-muted-foreground">
@@ -41,7 +54,7 @@ export function ContactForm() {
           </label>
           <input
             id="name"
-            name="name"
+            name="from_name"
             className={field}
             placeholder="Your name"
             value={values.name}
@@ -61,7 +74,7 @@ export function ContactForm() {
           </label>
           <input
             id="email"
-            name="email"
+            name="reply_to"
             type="email"
             className={field}
             placeholder="you@example.com"
@@ -116,8 +129,10 @@ export function ContactForm() {
         </button>
         <p aria-live="polite" className="text-xs text-muted-foreground">
           {status === "sent"
-            ? "Your email client has opened with the message ready to send."
-            : null}
+            ? "Message sent — thanks, I'll get back to you soon!"
+            : status === "error"
+              ? "Something went wrong sending your message. Please try again."
+              : null}
         </p>
       </div>
     </form>
