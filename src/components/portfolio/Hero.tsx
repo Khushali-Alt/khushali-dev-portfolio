@@ -1,234 +1,79 @@
-import { useEffect, useRef, useState } from "react";
-import { ArrowRight, FileDown, Github, Linkedin, Code2, Sparkles } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, Code2, FileDown, Github, Linkedin } from "lucide-react";
 import { LINKS } from "@/data/portfolio";
-import backdrop from "@/assets/profile-backdrop.jpg";
 import portrait from "@/assets/khushali.png";
 import resumeAsset from "@/assets/resume.pdf.asset.json";
+import { TechLogo } from "./TechLogo";
 
-const ROLES = ["Full-Stack Developer", "AI/ML Enthusiast", "Software Engineer in Progress"];
-
-const MARQUEE = [
-  "React",
-  "Next.js",
-  "TypeScript",
-  "Node.js",
-  "Express",
-  "Python",
-  "Java",
-  "Flask",
-  "MongoDB",
-  "SQL",
-  "Scikit-learn",
-  "Docker",
-  "Tailwind CSS",
-  "Git",
-];
-
-function useRotatingRole() {
-  const [i, setI] = useState(0);
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const t = window.setInterval(() => setI((v) => (v + 1) % ROLES.length), 2600);
-    return () => window.clearInterval(t);
-  }, []);
-  return ROLES[i];
-}
+const FEATURED_TECH = ["React", "TypeScript", "Node.js", "Python", "MongoDB"];
 
 export function Hero() {
-  const role = useRotatingRole();
-  const spotRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = spotRef.current;
-    if (!el) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const onMove = (e: PointerEvent) => {
-      const r = el.getBoundingClientRect();
-      el.style.setProperty("--mx", `${e.clientX - r.left}px`);
-      el.style.setProperty("--my", `${e.clientY - r.top}px`);
-    };
-    el.addEventListener("pointermove", onMove);
-    return () => el.removeEventListener("pointermove", onMove);
-  }, []);
-
   return (
-    <section
-      id="home"
-      ref={spotRef}
-      className="relative overflow-hidden pt-36 pb-16 md:pt-44 md:pb-20"
-    >
-      <div aria-hidden className="pointer-events-none absolute inset-0 grid-bg opacity-50" />
-      <div aria-hidden className="pointer-events-none absolute inset-0 hero-glow" />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-70 transition-opacity"
-        style={{
-          background:
-            "radial-gradient(340px circle at var(--mx, 50%) var(--my, 20%), color-mix(in oklab, var(--primary) 12%, transparent), transparent 70%)",
-        }}
-      />
-      <div
-        aria-hidden
-        className="orb pointer-events-none left-[-6rem] top-24 size-72 bg-primary/25"
-      />
-      <div
-        aria-hidden
-        className="orb pointer-events-none right-[-4rem] top-56 size-64 bg-chart-2/20"
-        style={{ animationDelay: "-6s" }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-40"
-        style={{ background: "linear-gradient(to top, var(--background), transparent)" }}
-      />
-
-      <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-5 lg:grid-cols-[1.3fr_1fr]">
-        <div>
-          <span className="inline-flex items-center gap-2.5 rounded-full border border-border bg-secondary/60 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.2em] text-primary backdrop-blur-md">
-            <span className="live-dot size-1.5 rounded-full bg-primary" />
-            OPEN TO FULL TIME SDE ROLES
-          </span>
-
-          <h1 className="mt-6 text-[2.6rem] font-bold leading-[1.03] md:text-7xl">
-            <span className="shimmer-text">Khushali Tiwari</span>
-          </h1>
-
-          <p className="mt-5 flex flex-wrap items-center gap-x-2 font-mono text-sm text-muted-foreground md:text-base">
-            <Sparkles aria-hidden className="size-4 text-primary" />
-            <span className="text-muted-foreground/70">building as a</span>
-            <span key={role} className="animate-fade-in font-semibold text-foreground">
-              {role}
-              <span aria-hidden className="ml-0.5 inline-block w-[2px] translate-y-[2px] self-stretch bg-primary align-middle" style={{ height: "1em" }} />
-            </span>
-            <span className="sr-only">
-              Full-Stack Developer, AI/ML Enthusiast, Software Engineer in Progress
-            </span>
-          </p>
-
-          <p className="mt-6 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-[15px]">
-            I am a B.Tech student specializing in Full-Stack Development with a passion for building
-            functional, user-centric web applications. Currently, I am sharpening my skills in modern
-            frontend frameworks and robust backend databases through hands-on projects. I love
-            translating complex logic into seamless digital experiences. My goal is to become a
-            versatile Software Engineer who contributes to impactful, scalable tech solutions. I bring
-            a strong foundation in computer science principles, a collaborative mindset, and an
-            eagerness to learn and adapt to evolving technologies.
-          </p>
-
-          <div className="mt-8 flex flex-wrap items-center gap-3">
-            <a
-              href="#projects"
-              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5"
-              style={{ boxShadow: "var(--shadow-glow)" }}
-            >
-              <span
-                aria-hidden
-                className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/35 to-transparent transition-transform duration-700 group-hover:translate-x-full"
-              />
-              View Projects
-              <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-            </a>
-            <a
-              href={resumeAsset.url}
-              target="_blank"
-              rel="noreferrer noopener"
-              download
-              className="inline-flex items-center gap-2 rounded-xl border border-border bg-secondary/50 px-5 py-3 text-sm font-semibold backdrop-blur-md transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary"
-            >
-              <FileDown className="size-4" />
-              Download Resume
-            </a>
+    <section id="home" className="relative overflow-hidden px-4 pb-14 pt-28 md:px-8 md:pb-20 md:pt-32">
+      <div aria-hidden className="editorial-dots absolute inset-0 opacity-40" />
+      <div className="relative mx-auto grid max-w-7xl gap-4 lg:grid-cols-12">
+        <div className="paper-panel relative flex min-h-[440px] flex-col justify-between overflow-hidden p-6 sm:p-9 lg:col-span-8 lg:p-12">
+          <div className="sticker absolute -right-5 top-6 rotate-6 bg-highlight px-6 py-3 text-xs font-extrabold uppercase sm:right-7">
+            Portfolio · 2026
+          </div>
+          <div>
+            <p className="mb-7 flex items-center gap-2 text-xs font-extrabold uppercase text-muted-foreground">
+              <span className="size-2.5 rounded-full bg-accent" /> Open to full time SDE roles
+            </p>
+            <p className="text-sm font-bold">Hi, my name is Khushali.</p>
+            <h1 className="mt-3 max-w-3xl text-5xl font-black uppercase leading-[0.9] sm:text-7xl lg:text-[6.7rem]">
+              I build for <span className="text-pop">impact.</span>
+            </h1>
+            <p className="mt-6 max-w-2xl text-base font-medium leading-relaxed text-muted-foreground sm:text-lg">
+              Full-stack developer and AI/ML enthusiast turning complex ideas into useful, scalable digital experiences.
+            </p>
           </div>
 
-          <div className="mt-6 flex flex-wrap items-center gap-2">
+          <div className="mt-10 flex flex-wrap gap-3">
+            <a href="#projects" className="editorial-button bg-highlight text-foreground">
+              View my work <ArrowDownRight className="size-4" />
+            </a>
+            <a href={resumeAsset.url} target="_blank" rel="noreferrer noopener" download className="editorial-button bg-card text-foreground">
+              Resume <FileDown className="size-4" />
+            </a>
+          </div>
+        </div>
+
+        <div className="paper-panel relative min-h-[440px] overflow-visible bg-pop p-4 lg:col-span-4">
+          <div className="h-full min-h-[400px] overflow-hidden border-2 border-foreground bg-secondary">
+            <img src={portrait} alt="Khushali Tiwari" width={800} height={800} className="h-full w-full object-cover object-center grayscale-[18%]" />
+          </div>
+          <div className="sticker absolute -bottom-6 -left-3 grid size-28 -rotate-12 place-items-center rounded-full bg-card p-4 text-center text-[10px] font-black uppercase leading-tight sm:size-32">
+            Design · Development · AI · India
+          </div>
+          <div className="sticker absolute -right-2 top-8 rotate-3 bg-accent px-3 py-2 text-xs font-extrabold">B.Tech CSE</div>
+        </div>
+
+        <div className="paper-panel bg-teal p-6 lg:col-span-4">
+          <p className="section-kicker">Current focus</p>
+          <p className="mt-3 text-2xl font-bold leading-tight">Modern web systems with thoughtful interfaces.</p>
+          <div className="mt-6 flex flex-wrap gap-2">
+            {FEATURED_TECH.map((tech) => (
+              <span key={tech} className="tech-pill bg-card"><TechLogo name={tech} />{tech}</span>
+            ))}
+          </div>
+        </div>
+
+        <div className="paper-panel flex flex-col justify-between gap-8 p-6 sm:flex-row sm:items-end lg:col-span-8 lg:p-8">
+          <div>
+            <p className="section-kicker">Find me online</p>
+            <p className="mt-2 max-w-lg text-2xl font-bold">Building in public, learning continuously, and ready to collaborate.</p>
+          </div>
+          <div className="flex gap-2">
             {[
               { href: LINKS.github, label: "GitHub", Icon: Github },
               { href: LINKS.linkedin, label: "LinkedIn", Icon: Linkedin },
               { href: LINKS.leetcode, label: "LeetCode", Icon: Code2 },
             ].map(({ href, label, Icon }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="group inline-flex items-center gap-2 rounded-lg border border-border px-3.5 py-2 text-xs text-muted-foreground transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:text-foreground hover:shadow-[0_0_22px_-8px_var(--primary)]"
-              >
-                <Icon className="size-4 transition-colors group-hover:text-primary" />
-                {label}
+              <a key={label} href={href} target="_blank" rel="noreferrer noopener" aria-label={label} title={label} className="icon-button">
+                <Icon className="size-5" /><ArrowUpRight className="size-3" />
               </a>
             ))}
           </div>
-        </div>
-
-        <div className="relative mx-auto w-full max-w-sm">
-          <div className="float-soft relative">
-            <div className="relative aspect-square overflow-hidden rounded-full p-[1.5px]">
-              <span aria-hidden className="conic-ring opacity-70" />
-              <div className="glass relative size-full overflow-hidden rounded-full">
-                <img
-                  src={backdrop}
-                  alt=""
-                  aria-hidden
-                  width={768}
-                  height={768}
-                  className="absolute inset-0 size-full object-cover opacity-60"
-                />
-                <img
-                  src={portrait}
-                  alt="Portrait of Khushali Tiwari"
-                  width={800}
-                  height={800}
-                  className="relative size-full object-cover object-center"
-                />
-              </div>
-            </div>
-
-            <div className="glass absolute -left-4 top-6 hidden rounded-xl px-3 py-2 font-mono text-[11px] text-muted-foreground sm:block">
-              <span className="text-primary">●</span> Java · DSA
-            </div>
-            <div className="glass absolute -right-3 top-1/2 hidden rounded-xl px-3 py-2 font-mono text-[11px] text-muted-foreground sm:block">
-              <span className="text-primary">▲</span> AI / ML
-            </div>
-            <div className="glass absolute -left-2 bottom-8 hidden rounded-xl px-3 py-2 font-display text-sm font-bold text-gradient sm:block">
-              KT
-            </div>
-            <div className="glass absolute inset-x-8 -bottom-4 rounded-xl px-3 py-2 text-center font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-              B.Tech CSE · 2023–2027
-            </div>
-          </div>
-
-          <div className="glass mt-5 grid grid-cols-3 divide-x divide-border rounded-2xl p-4 text-center">
-            {[
-              { v: "110+", l: "LeetCode" },
-              { v: "8.0", l: "CGPA" },
-              { v: "8+", l: "Projects" },
-            ].map((s) => (
-              <div key={s.l}>
-                <p className="font-display text-xl font-bold text-primary">{s.v}</p>
-                <p className="text-[11px] text-muted-foreground">{s.l}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* tech marquee */}
-      <div
-        className="relative mt-14 overflow-hidden border-y border-border py-3.5"
-        style={{
-          maskImage: "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
-        }}
-        aria-hidden
-      >
-        <div className="marquee-track gap-8 pr-8">
-          {[...MARQUEE, ...MARQUEE].map((t, i) => (
-            <span
-              key={`${t}-${i}`}
-              className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground/70"
-            >
-              {t}
-            </span>
-          ))}
         </div>
       </div>
     </section>

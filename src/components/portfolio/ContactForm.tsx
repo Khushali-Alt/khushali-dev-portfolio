@@ -31,7 +31,9 @@ export function ContactForm() {
     setStatus("sending");
 
     try {
-      await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formRef.current!, {
+      const form = formRef.current;
+      if (!form) return;
+      await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form, {
         publicKey: EMAILJS_PUBLIC_KEY,
       });
       setStatus("sent");
@@ -43,10 +45,10 @@ export function ContactForm() {
   };
 
   const field =
-    "w-full rounded-xl border border-border bg-secondary/40 px-4 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-primary/50 focus:ring-2 focus:ring-ring/40";
+    "w-full border-2 border-foreground bg-background px-4 py-3 text-sm font-medium outline-none transition-shadow placeholder:text-muted-foreground focus:shadow-editorial";
 
   return (
-    <form ref={formRef} onSubmit={onSubmit} noValidate className="glass rounded-2xl p-6 md:p-8">
+    <form ref={formRef} onSubmit={onSubmit} noValidate className="paper-panel bg-highlight p-6 md:p-8">
       <div className="grid gap-4 md:grid-cols-2">
         <div>
           <label htmlFor="name" className="mb-2 block text-xs font-medium text-muted-foreground">
@@ -117,8 +119,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={status === "sending"}
-          className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5 disabled:opacity-70"
-          style={{ boxShadow: "var(--shadow-glow)" }}
+          className="editorial-button bg-foreground text-background disabled:opacity-70"
         >
           {status === "sending" ? (
             <Loader2 className="size-4 animate-spin" />

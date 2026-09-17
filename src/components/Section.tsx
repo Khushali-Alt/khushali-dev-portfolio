@@ -1,64 +1,20 @@
-import { useEffect, useRef, type ReactNode } from "react";
+import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { Reveal } from "./Reveal";
 
-function useSpotlight<T extends HTMLElement>() {
-  const ref = useRef<T>(null);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const onMove = (e: PointerEvent) => {
-      const r = el.getBoundingClientRect();
-      el.style.setProperty("--mx", `${e.clientX - r.left}px`);
-      el.style.setProperty("--my", `${e.clientY - r.top}px`);
-    };
-    el.addEventListener("pointermove", onMove);
-    return () => el.removeEventListener("pointermove", onMove);
-  }, []);
-  return ref;
-}
-
-export function Section({
-  id,
-  eyebrow,
-  title,
-  description,
-  children,
-  className,
-}: {
-  id: string;
-  eyebrow: string;
-  title: string;
-  description?: string;
-  children: ReactNode;
-  className?: string;
-}) {
-  const ref = useSpotlight<HTMLElement>();
+export function Section({ id, eyebrow, title, description, children, className }: { id: string; eyebrow: string; title: string; description?: string; children: ReactNode; className?: string }) {
   return (
-    <section
-      id={id}
-      ref={ref}
-      className={cn("relative mx-auto w-full max-w-6xl px-5 py-20 md:py-28", className)}
-    >
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 opacity-80"
-        style={{
-          background:
-            "radial-gradient(320px circle at var(--mx, 50%) var(--my, 30%), color-mix(in oklab, var(--primary) 10%, transparent), transparent 70%)",
-        }}
-      />
-      <Reveal>
-        <p className="font-mono text-xs uppercase tracking-[0.3em] text-primary">{eyebrow}</p>
-        <h2 className="mt-3 text-3xl font-semibold md:text-4xl">{title}</h2>
-        {description ? (
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
-            {description}
-          </p>
-        ) : null}
-      </Reveal>
-      <div className="mt-10 md:mt-14">{children}</div>
+    <section id={id} className={cn("relative border-t-2 border-foreground px-4 py-16 md:px-8 md:py-24", className)}>
+      <div className="mx-auto max-w-7xl">
+        <Reveal className="grid gap-4 md:grid-cols-[220px_1fr] md:items-start">
+          <p className="section-kicker pt-2">{eyebrow}</p>
+          <div>
+            <h2 className="max-w-4xl text-4xl font-black uppercase leading-[0.95] sm:text-6xl">{title}</h2>
+            {description ? <p className="mt-5 max-w-2xl text-base font-medium leading-relaxed text-muted-foreground">{description}</p> : null}
+          </div>
+        </Reveal>
+        <div className="mt-12">{children}</div>
+      </div>
     </section>
   );
 }
