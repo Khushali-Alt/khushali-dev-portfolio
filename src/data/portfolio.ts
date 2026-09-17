@@ -60,25 +60,80 @@ export type Project = {
 
 export const FEATURED_PROJECTS: Project[] = [
   {
-    title: "GrowEasy AI CSV CRM",
-    blurb: "AI-powered CSV-to-CRM workflow",
+    title: "Insider Jobs",
+    blurb: "AI-powered MERN job portal",
     description:
-      "A full-stack workflow that turns raw CSV exports into structured CRM records using AI-assisted schema mapping, validation and a typed backend integration layer built for scalable data handling.",
+      "A full-stack MERN job portal connecting recruiters and job seekers with intelligent job search, Gemini AI assistance, Clerk authentication, resume uploads and real-time MongoDB job data.",
+    stack: ["MongoDB", "Express.js", "React", "Node.js", "Gemini AI", "Clerk"],
+    features: [
+      "Intelligent job search with Gemini AI assistance",
+      "Clerk authentication for recruiters and job seekers",
+      "Resume uploads and application management",
+      "Real-time job data backed by MongoDB",
+    ],
+    github: "https://github.com/Khushali-Alt/Insider-Jobs",
+  },
+  {
+    title: "Vibe Code Editor",
+    blurb: "AI-powered browser IDE",
+    description:
+      "An AI-powered browser IDE that lets developers create, edit, run and preview projects directly in the browser — with Monaco Editor, WebContainers, AI code assistance, NextAuth, Prisma and MongoDB.",
+    stack: ["TypeScript", "Monaco Editor", "WebContainers", "NextAuth", "Prisma", "MongoDB"],
+    features: [
+      "Create, edit, run and preview projects in the browser",
+      "Monaco Editor with AI code assistance",
+      "WebContainers for in-browser project execution",
+      "NextAuth authentication with Prisma and MongoDB",
+    ],
+    github: "https://github.com/Khushali-Alt/Vibe_Code_Editor",
+  },
+  {
+    title: "GrowEasy AI CSV CRM",
+    blurb: "AI-powered CSV-to-CRM importer",
+    description:
+      "A full-stack AI-powered CSV importer that transforms diverse CSV data into a standardized CRM schema using Gemini — with intelligent mapping, validation, batching, retries and Dockerized deployment.",
     stack: ["Next.js", "TypeScript", "Express.js", "Gemini AI", "Docker"],
     features: [
       "CSV parsing and intelligent schema mapping",
       "Validation rules with clear error reporting",
-      "REST API integration between frontend and backend",
-      "Containerised full-stack architecture",
+      "Batching and retries for reliable imports",
+      "Containerised full-stack deployment",
     ],
     github: "https://github.com/Khushali-Alt/Groweasy-csv-CRM",
+  },
+  {
+    title: "Soil Fertility Predictor",
+    blurb: "End-to-end machine learning pipeline",
+    description:
+      "An ML-powered web app that instantly predicts soil fertility from 14 measured parameters and gives smart fertilizer recommendations — with a live gauge, PDF report and test cases, deployed on Render.",
+    stack: ["Python", "Flask", "Scikit-learn", "Random Forest"],
+    features: [
+      "Fertility prediction from 14 soil parameters",
+      "Smart fertilizer recommendations",
+      "Live gauge UI with PDF report export",
+      "Deployed on Render with test cases",
+    ],
+    github: "https://github.com/Khushali-Alt/Soil_Fertility_Predictor_ML_v3",
+  },
+  {
+    title: "Full Stack Authentication System",
+    blurb: "Secure auth with Next.js & MongoDB",
+    description:
+      "A full-stack authentication system built with Next.js, TypeScript, MongoDB and Mongoose — covering secure signup, signin, sessions and protected routes.",
+    stack: ["Next.js", "TypeScript", "MongoDB", "Mongoose"],
+    features: [
+      "Secure signup and signin flows",
+      "Session management and protected routes",
+      "Typed data layer with Mongoose",
+    ],
+    github: "https://github.com/Khushali-Alt/Full_Stack_Authentication_System",
   },
   {
     title: "Real-Time AQI Project",
     blurb: "Live environmental data dashboard",
     description:
       "Fetches live Air Quality Index and weather data from public APIs and presents it in a readable real-time interface, handling asynchronous requests and JSON parsing end to end.",
-    stack: ["JavaScript", "REST APIs", "JSON", "Async Data"],
+    stack: ["Python", "REST APIs", "JSON", "Async Data"],
     features: [
       "Real-time AQI and weather API integration",
       "Asynchronous data fetching and error handling",
@@ -91,7 +146,7 @@ export const FEATURED_PROJECTS: Project[] = [
     title: "Face Recognition Python",
     blurb: "Computer vision with OpenCV",
     description:
-      "A webcam-based face detection application built with Python and OpenCV, applying Haar Cascade classifiers to demonstrate practical computer vision concepts in real time.",
+      "A webcam-based face detection application built with Python and OpenCV, applying Haar Cascade classifiers to identify faces with bounding boxes in real time.",
     stack: ["Python", "OpenCV", "Haar Cascade", "Computer Vision"],
     features: [
       "Real-time webcam face detection",
@@ -101,38 +156,29 @@ export const FEATURED_PROJECTS: Project[] = [
     github: "https://github.com/Khushali-Alt/Face-Recognition-Python",
   },
   {
-    title: "Soil Fertility Predictor",
-    blurb: "End-to-end machine learning pipeline",
+    title: "Course Selling Application",
+    blurb: "Full-stack course platform",
     description:
-      "Predicts soil fertility from measured parameters using a Random Forest model served through a Flask app — covering data preprocessing, model training, evaluation and prediction.",
-    stack: ["Python", "Flask", "Scikit-learn", "Random Forest"],
+      "A full-stack course selling application with user and admin workflows — built with Node.js, Express and MongoDB, featuring authentication, course management and purchase functionality.",
+    stack: ["Node.js", "Express.js", "MongoDB", "Authentication"],
     features: [
-      "Data preprocessing and feature preparation",
-      "Random Forest model training",
-      "Performance validation and evaluation",
-      "Flask interface for predictions",
+      "Separate user and admin workflows",
+      "Course management and purchase flow",
+      "Authentication and session handling",
     ],
-    github: "https://github.com/Khushali-Alt/Soil_Fertility_Predictor_ML_v3",
-  },
-  {
-    title: "Student Management System",
-    blurb: "CRUD application and data modelling",
-    description:
-      "A student records application covering create, read, update and delete operations with a structured approach to database design and application architecture.",
-    stack: ["CRUD", "Database Design", "Backend Logic"],
-    features: [
-      "Complete CRUD operations on student records",
-      "Structured data handling",
-      "Clear application architecture",
-    ],
-    github: "https://github.com/Khushali-Alt/Student-management-system",
+    github: "https://github.com/Khushali-Alt/Course-Selling-Application",
   },
 ];
 
 export const MINI_PROJECTS = [
   {
+    title: "Docker Practice",
+    description: "Hands-on Docker practice containerizing full-stack React and Node.js applications.",
+    github: "https://github.com/Khushali-Alt/Docker",
+  },
+  {
     title: "Automate WhatsApp Messages",
-    description: "Python automation for programmatic messaging workflows.",
+    description: "Python automation for scheduled, programmatic messaging with PyWhatKit.",
     github: "https://github.com/Khushali-Alt/automate-whatsapp-msg",
   },
   {
@@ -142,7 +188,7 @@ export const MINI_PROJECTS = [
   },
   {
     title: "Mini Projects",
-    description: "A collection of smaller experiments and practical programming exercises.",
+    description: "A collection of practical mini projects covering JavaScript, DOM, APIs and LocalStorage.",
     github: "https://github.com/Khushali-Alt/Mini_Projects",
   },
 ];
