@@ -348,7 +348,7 @@ function Index() {
             <div aria-hidden className="absolute inset-0 grid-bg opacity-50" />
             <div className="relative grid items-center gap-8 md:grid-cols-[1fr_auto]">
               <div>
-                <p className="font-display text-4xl font-bold text-gradient md:text-6xl">110+</p>
+                <p className="font-display text-4xl font-bold text-gradient md:text-6xl">130+</p>
                 <p className="mt-2 text-sm text-muted-foreground">
                   LeetCode problems solved · Primary language: Java
                 </p>
