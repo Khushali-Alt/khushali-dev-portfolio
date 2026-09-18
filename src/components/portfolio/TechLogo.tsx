@@ -2,7 +2,7 @@ import { Code2 } from "lucide-react";
 import type { IconType } from "react-icons";
 import {
   SiBootstrap,
-  SiCss3,
+  SiCss,
   SiDocker,
   SiExpress,
   SiFlask,
@@ -20,13 +20,12 @@ import {
   SiScikitlearn,
   SiTailwindcss,
   SiTypescript,
-  SiVisualstudiocode,
 } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
 
 const LOGOS: Record<string, IconType> = {
   Bootstrap: SiBootstrap,
-  CSS: SiCss3,
+  CSS: SiCss,
   Docker: SiDocker,
   "Express.js": SiExpress,
   Flask: SiFlask,
@@ -45,7 +44,6 @@ const LOGOS: Record<string, IconType> = {
   "Scikit-learn": SiScikitlearn,
   "Tailwind CSS": SiTailwindcss,
   TypeScript: SiTypescript,
-  "VS Code": SiVisualstudiocode,
 };
 
 export function TechLogo({ name, className = "size-5" }: { name: string; className?: string }) {
