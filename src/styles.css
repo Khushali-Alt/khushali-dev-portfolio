@@ -147,7 +147,9 @@
 }
 
 @media (max-width: 640px) {
-  :root { --shadow-editorial: 4px 4px 0 var(--foreground); }
+  :root { --shadow-editorial: 2px 2px 0 var(--foreground); }
+  .paper-panel:hover { transform: none; box-shadow: var(--shadow-editorial); }
+  .sticker { box-shadow: 2px 2px 0 var(--foreground); }
 }
 
 @media (prefers-reduced-motion: reduce) {
