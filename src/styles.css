@@ -53,7 +53,7 @@
 @layer base {
   * { border-color: var(--border); }
   html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
-  body { margin: 0; background: var(--background); color: var(--foreground); font-family: var(--font-sans); letter-spacing: 0; -webkit-font-smoothing: antialiased; }
+  body { margin: 0; overflow-x: clip; background: var(--background); color: var(--foreground); font-family: var(--font-sans); letter-spacing: 0; -webkit-font-smoothing: antialiased; }
   h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: 0; }
   ::selection { background: var(--pop); color: var(--foreground); }
   button, a { -webkit-tap-highlight-color: transparent; }
@@ -62,6 +62,7 @@
 @utility shadow-editorial { box-shadow: var(--shadow-editorial); }
 
 @utility paper-panel {
+  min-width: 0;
   border: 2px solid var(--foreground);
   background: var(--card);
   box-shadow: var(--shadow-editorial);
