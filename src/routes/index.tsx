@@ -116,7 +116,7 @@ function Index() {
             {FEATURED_PROJECTS.map((project, index) => {
               const major = index < 2;
               return (
-                <Reveal key={project.title} as="article" delay={index * 40} className={`paper-panel group grid overflow-hidden ${major ? "md:grid-cols-[0.7fr_1.3fr]" : "md:grid-cols-[240px_1fr]"}`}>
+                <Reveal key={project.title} as="article" delay={index * 40} className={`paper-panel group grid min-w-0 grid-cols-[minmax(0,1fr)] overflow-hidden ${major ? "md:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]" : "md:grid-cols-[240px_minmax(0,1fr)]"}`}>
                   <div className={`relative flex min-h-52 flex-col justify-between border-b-2 border-foreground p-6 md:border-b-0 md:border-r-2 ${index % 3 === 0 ? "bg-pop" : index % 3 === 1 ? "bg-teal" : "bg-highlight"}`}>
                     <span className="text-6xl font-black">0{index + 1}</span>
                     <div>
@@ -124,7 +124,7 @@ function Index() {
                       <p className="mt-2 text-xl font-black">{project.blurb}</p>
                     </div>
                   </div>
-                  <div className="p-6 md:p-8">
+                  <div className="min-w-0 p-6 md:p-8">
                     <div className="flex items-start justify-between gap-4">
                       <h3 className="text-2xl font-black sm:text-3xl">{project.title}</h3>
                       <a href={project.github} target="_blank" rel="noreferrer noopener" aria-label={`Open ${project.title} on GitHub`} title="View repository" className="icon-button shrink-0"><Github className="size-5" /><ArrowUpRight className="size-3" /></a>
