@@ -20,8 +20,8 @@ export const NAV_ITEMS = [
 export const STATS = [
   { value: "110+", label: "LeetCode Problems" },
   { value: "8.0", label: "CGPA / 10" },
-  { value: "2023–2027", label: "B.Tech CSE" },
-  { value: "8+", label: "Full-Stack & AI/ML Projects" },
+  { value: "2023–2027", label: "B.TECH CSE  . QUANTUM UNIVERSITY" },
+  { value: "8+", label: "TECH PROJECTS\nFULL-STACK & AI/ML " },
 ];
 
 export const SKILL_GROUPS = [

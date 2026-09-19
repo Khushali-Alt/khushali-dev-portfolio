@@ -27,13 +27,13 @@ export const Route = createFileRoute("/")({
 
 const ABOUT_POINTS = [
   "B.Tech Computer Science Engineering student",
-  "Full-Stack Development specialization",
+  "Full-stack development with MERN & Next.js",
   "Data Science minor",
-  "Strong foundation in core CS principles",
-  "Hands-on development across multiple projects",
-  "Active interest in AI/ML and Generative AI",
-  "Passion for solving problems with technology",
-  "Collaborative and adaptable by default",
+  "Strong foundation in core CS & DSA",
+  "Hands-on experience building real-world applications",
+  "Exploring AI/ML & Generative AI",
+  "130+ DSA problems solved in Java",
+  "Focused on learning, building & shipping",
 ];
 
 function Index() {
