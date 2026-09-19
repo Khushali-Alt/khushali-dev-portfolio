@@ -40,7 +40,7 @@ export function Hero() {
 
         <div className="paper-panel relative min-h-[440px] overflow-visible bg-pop p-4 lg:col-span-4">
           <div className="h-full min-h-[400px] overflow-hidden border-2 border-foreground bg-secondary">
-            <img src={portraitAsset.url} alt="Khushali Tiwari" width={800} height={800} className="h-full w-full object-cover object-center grayscale-[18%]" />
+            <img src={portraitAsset} alt="Khushali Tiwari" width={800} height={800} className="h-full w-full object-cover object-center grayscale-[18%]" />
           </div>
           <div className="sticker absolute -bottom-6 -left-3 grid size-28 -rotate-12 place-items-center rounded-full bg-card p-4 text-center text-[10px] font-black uppercase leading-tight sm:size-32">
             Design · Development · AI · India
