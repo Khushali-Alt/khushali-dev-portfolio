@@ -19,12 +19,12 @@ export function Hero() {
             <p className="mb-7 flex items-center gap-2 text-xs font-extrabold uppercase text-muted-foreground">
               <span className="size-2.5 rounded-full bg-accent" /> Open to full time SDE roles
             </p>
-            <p className="text-sm font-bold">Hi, my name is Khushali.</p>
+            <p className="text-sm font-bold">Hi, I'm Khushali</p>
             <h1 className="mt-3 max-w-3xl text-5xl font-black uppercase leading-[0.9] sm:text-7xl lg:text-[6.7rem]">
               I build for <span className="text-pop">impact.</span>
             </h1>
             <p className="mt-6 max-w-2xl text-base font-medium leading-relaxed text-muted-foreground sm:text-lg">
-              Full-stack developer and AI/ML enthusiast turning complex ideas into useful, scalable digital experiences.
+              Final-year B.Tech CSE student building full-stack applications with MERN, Next.js, TypeScript, Python, and AI.
             </p>
           </div>
 
@@ -45,12 +45,12 @@ export function Hero() {
           <div className="sticker absolute -bottom-6 -left-3 grid size-28 -rotate-12 place-items-center rounded-full bg-card p-4 text-center text-[10px] font-black uppercase leading-tight sm:size-32">
             Design · Development · AI · India
           </div>
-          <div className="sticker absolute -right-2 top-8 rotate-3 bg-accent px-3 py-2 text-xs font-extrabold">B.Tech CSE</div>
+          <div className="sticker absolute -right-2 top-8 rotate-3 bg-accent px-3 py-2 text-xs font-extrabold">B.Tech CSE.2027</div>
         </div>
 
         <div className="paper-panel bg-teal p-6 lg:col-span-4">
           <p className="section-kicker">Current focus</p>
-          <p className="mt-3 text-2xl font-bold leading-tight">Modern web systems with thoughtful interfaces.</p>
+           <p className="mt-3 text-2xl font-bold leading-tight">Building scalable full-stack systems with AI-powered experiences.</p>
           <div className="mt-6 flex flex-wrap gap-2">
             {FEATURED_TECH.map((tech) => (
               <span key={tech} className="tech-pill bg-card"><TechLogo name={tech} />{tech}</span>
