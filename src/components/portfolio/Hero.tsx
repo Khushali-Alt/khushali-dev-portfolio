@@ -1,7 +1,7 @@
 import { ArrowDownRight, ArrowUpRight, Code2, FileDown, Github, Linkedin } from "lucide-react";
 import { LINKS } from "@/data/portfolio";
-import portraitAsset from "@/assets/photo-2-2.png.asset.json";
-import resumeAsset from "@/assets/resume.pdf.asset.json";
+import portraitAsset from "@/assets/photo-2-2.png";
+import resume from "@/assets/Khushali_Resume_1_page-1-3.pdf";
 import { TechLogo } from "./TechLogo";
 
 const FEATURED_TECH = ["React", "TypeScript", "Node.js", "Python", "MongoDB"];
@@ -32,7 +32,7 @@ export function Hero() {
             <a href="#projects" className="editorial-button bg-highlight text-foreground">
               View my work <ArrowDownRight className="size-4" />
             </a>
-            <a href={resumeAsset.url} target="_blank" rel="noreferrer noopener" download className="editorial-button bg-card text-foreground">
+            <a href={resume} target="_blank" rel="noreferrer noopener" download className="editorial-button bg-card text-foreground">
               Resume <FileDown className="size-4" />
             </a>
           </div>
