@@ -1,6 +1,6 @@
 import { ArrowDownRight, ArrowUpRight, Code2, FileDown, Github, Linkedin } from "lucide-react";
 import { LINKS } from "@/data/portfolio";
-import portraitAsset from "@/assets/khushali.png.asset.json";
+import portraitAsset from "@/assets/photo-2-2.png.asset.json";
 import resumeAsset from "@/assets/resume.pdf.asset.json";
 import { TechLogo } from "./TechLogo";
 
